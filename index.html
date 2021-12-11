@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Weather Dashboard</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css"/>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>Weather Dashboard</h1>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <!-- City Search -->
+        <div class="col-3">
+          <h3 id="search-city">Search for a City:</h3>
+          <div>
+  
+             <!-- Input from user -->
+            <form>
+              <div class="mb-3">
+                <input type="text" class="form-control form-label" placeholder= "Enter City Name" autofocus="true" id="userCityInput" />
+              </div>
+                 <div>
+                    <button type="submit" class="btn btn-primary button" id="btn-primary">Search</button>
+                 </div>
+              </form>
+            </form>
+
+          </div>
+          <br />
+           <!-- saved cities under the searched button -->
+          <table class="table table-bordered table-hover">
+            <thead></thead>
+            <tbody id="saved-cities">
+             </tbody>
+          </table>
+        </div>
+
+        <!-- City Info -->
+        <div class="col-9 border">
+          <div class="row">
+            <div>
+                <h2 class="current-city"></h2>
+                <p class="current-temp">Temperature:</p>
+                <p class="current-humidity">Humidity:</p>
+                <p class="current-wind">Wind Speed:</p>
+                </div>
+              </div>
+          <!-- Weather Icons will be displayed with the data -->
+           <div class="row" id="weatherDisplay">
+              <h2 id="weatherHeader">5-Day's Weather</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
