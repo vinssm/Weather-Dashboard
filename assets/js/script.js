@@ -21,23 +21,26 @@ function citySearch() {
     savedCities.append(tableRow);
 }
 
-function get_weather() {
-    var city = $("#cityName").val();
-}
 
+// to display the saved cities
+$("#saved-cities").on("click", ".btn-info", function(event) {
+  event.preventDefault();
+  var userInput = ($(this).text());
+  console.log(this)
+  citiesData(userInput);
+}); 
 
-var buttonClickHandler = function(event) {
-  var City = event.target.getAttribute("cityData");
-  console.log(City)
+// var buttonClickHandler = function(event) {
+//   var City = event.target.getAttribute("cityData");
+//   console.log(City)
 
-  if (City) {
-    citiesData(City);
-    
+//   if (City) {
+//     citiesData(City);   
   
-    // clear old content
-    //repoContainerEl.textContent = "";
-  }
-};
+//     // clear old content
+//     //repoContainerEl.textContent = "";
+//   }
+// };
 
 
 // Method for City Data
@@ -147,5 +150,5 @@ $(document).ready(function () {
   
 });
 
-cityButtonEl.addEventListener("click", buttonClickHandler);
+//cityButtonEl.addEventListener("click", buttonClickHandler);
 
