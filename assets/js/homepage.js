@@ -30,18 +30,6 @@ $("#saved-cities").on("click", ".btn-info", function(event) {
   citiesData(userInput);
 }); 
 
-// var buttonClickHandler = function(event) {
-//   var City = event.target.getAttribute("cityData");
-//   console.log(City)
-
-//   if (City) {
-//     citiesData(City);   
-  
-//     // clear old content
-//     //repoContainerEl.textContent = "";
-//   }
-// };
-
 
 // Method for City Data
 function citiesData() {
@@ -97,12 +85,15 @@ $(document).ready(function () {
       var currentTemp = $(".current-temp");
       var currentHumidity = $(".current-humidity");
       var currentWind = $(".current-wind");
+      var currentFeelsLike = $(".current-feels_like"); 
       var iconCode = response.weather[0].icon;
       var iconURL = "http://openweathermap.org/img/wn/" + iconCode + ".png";
       userInput.text(response.name + " " + currentDay);
-      currentTemp.text("Temperature: " + response.main.temp + "º");
+      currentTemp.text("Temperature: " + response.main.temp + "º" + "C");
       currentHumidity.text("Humidity: " + response.main.humidity + "%");
       currentWind.text("Wind Speed: " + response.wind.speed + " MPH");
+      currentFeelsLike.text("Feels Like: " + response.main.feels_like + "º" + "C");
+      console.log(feels_like)
       var cityIcon = $("<img>");
       cityIcon.attr("src", iconURL);
       userInput.append(cityIcon);
@@ -136,9 +127,10 @@ $(document).ready(function () {
             mm+'/'+dd+'/'+yyyy+"\n"+
             "Temp: " +
               response.list[i + 5].main.temp +
-              "ºF\nHumidity :" +
+              "ºF\n Humidity :" +
               response.list[i + 5].main.humidity +
-              "%"
+              "%\n  FeelsLike :" +
+              response.list[i + 5].main.feels_like
           )
           .addClass("weather")
         h3Tag.append(pTag);
