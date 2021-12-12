@@ -4,18 +4,19 @@
  $("#currentDay").text(currentDay);
 
 // Initializing variable..
-var savedButton = $(".saved-button");
+var savedButton = $(".btn-info");
 var buttonPrimary = $("#btn-primary");
 var searchInput = $("#userCityInput");
 var userInput = "";
-var userSearch = [];
+var userSearch = []; 
+var cityButtonEl = document.querySelector("#saved-cities")
 
 // method for appending table and row for saved cities 
 function citySearch() {
     var savedCities = $("#saved-cities");
     var tableRow = $("<tr>");
     var tableHead = $("<th>");
-    tableHead.text(userInput).attr("scope", "row").addClass("saved-button");
+    tableHead.text(userInput).attr("scope", "row").addClass("btn-info");
     tableRow.append(tableHead);
     savedCities.append(tableRow);
 }
@@ -23,6 +24,21 @@ function citySearch() {
 function get_weather() {
     var city = $("#cityName").val();
 }
+
+
+var buttonClickHandler = function(event) {
+  var City = event.target.getAttribute("data-city");
+  console.log(City)
+
+  if (City) {
+    citiesData(City);
+    
+  
+    // clear old content
+    //repoContainerEl.textContent = "";
+  }
+};
+
 
 // Method for City Data
 function citiesData() {
@@ -38,7 +54,7 @@ function citiesData() {
     var savedCities = $("#saved-cities");
     var tableRow = $("<tr>");
     var tableHead = $("<th>");
-    tableHead.text(cityData[i]).attr("scope", "row").addClass("saved-button");
+    tableHead.text(cityData[i]).attr("scope", "row").addClass("btn-info");
     tableRow.append(tableHead);
     savedCities.append(tableRow);
   }
@@ -131,4 +147,6 @@ $(document).ready(function () {
    }
   
 });
+
+cityButtonEl.addEventListener("click", buttonClickHandler);
 
