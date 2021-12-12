@@ -27,7 +27,7 @@ function get_weather() {
 
 
 var buttonClickHandler = function(event) {
-  var City = event.target.getAttribute("data-city");
+  var City = event.target.getAttribute("cityData");
   console.log(City)
 
   if (City) {
@@ -43,7 +43,6 @@ var buttonClickHandler = function(event) {
 // Method for City Data
 function citiesData() {
   var cityData = JSON.parse(localStorage.getItem("City"));
-
   if (cityData !== null) {
      userSearch = cityData;
   } else {
