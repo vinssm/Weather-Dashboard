@@ -86,14 +86,15 @@ $(document).ready(function () {
       var currentHumidity = $(".current-humidity");
       var currentWind = $(".current-wind");
       var currentFeelsLike = $(".current-feels_like"); 
+      var currentSunrise= $(".current-sunrise"); 
       var iconCode = response.weather[0].icon;
       var iconURL = "http://openweathermap.org/img/wn/" + iconCode + ".png";
       userInput.text(response.name + " " + currentDay);
       currentTemp.text("Temperature: " + response.main.temp + "º" + "C");
       currentHumidity.text("Humidity: " + response.main.humidity + "%");
       currentWind.text("Wind Speed: " + response.wind.speed + " MPH");
-      currentFeelsLike.text("Feels Like: " + response.main.feels_like + "º" + "C");
-      console.log(feels_like)
+      currentFeelsLike.text("Feels Like: " + response.main.feels_like);
+      currentSunrise.text("Sunrise: " + response.sys.sunrise);
       var cityIcon = $("<img>");
       cityIcon.attr("src", iconURL);
       userInput.append(cityIcon);
@@ -129,8 +130,8 @@ $(document).ready(function () {
               response.list[i + 5].main.temp +
               "ºF\n Humidity :" +
               response.list[i + 5].main.humidity +
-              "%\n  FeelsLike :" +
-              response.list[i + 5].main.feels_like
+              "%\n  Feels Like :" +
+              response.list[i + 5].main.feels_like 
           )
           .addClass("weather")
         h3Tag.append(pTag);
