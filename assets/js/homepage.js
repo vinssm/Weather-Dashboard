@@ -27,7 +27,7 @@ $("#saved-cities").on("click", ".btn-info", function(event) {
   event.preventDefault();
   var userInput = ($(this).text());
   console.log(this)
-  citiesData(userInput);
+  weatherFiveDay(userInput);
 }); 
 
 
@@ -58,7 +58,7 @@ $(document).ready(function () {
   });
 
 // function for user input 
-  function weatherFiveDay() {
+ function weatherFiveDay() {
     userInput = searchInput.val();
     var cityData = JSON.parse(localStorage.getItem("City"));
     if (cityData == null){
@@ -87,8 +87,8 @@ $(document).ready(function () {
       var currentWind = $(".current-wind");
       var currentFeelsLike = $(".current-feels_like"); 
       var currentSunrise= $(".current-sunrise"); 
-      var iconCode = response.weather[0].icon;
-      var iconURL = "http://openweathermap.org/img/wn/" + iconCode + ".png";
+      var fav = response.weather[0].icon;
+      var iconURL = "http://openweathermap.org/img/wn/" + fav + ".png";
       userInput.text(response.name + " " + currentDay);
       currentTemp.text("Temperature: " + response.main.temp + "º" + "C");
       currentHumidity.text("Humidity: " + response.main.humidity + "%");
@@ -113,8 +113,8 @@ $(document).ready(function () {
         var h3Tag = $("<h3>");
         var pTag = $("<p>");
         var weatherIcon = $("<img>");
-        var iconCode = response.list[i * 8 + 5].weather[0].icon;
-        var iconURL = "http://openweathermap.org/img/wn/" + iconCode + ".png";
+        var fav = response.list[i * 8 + 5].weather[0].icon;
+        var iconURL = "http://openweathermap.org/img/wn/" + fav + ".png";
         var date = new Date(response.list[i].dt_txt);
         var dd = date.getDate();
         var mm = date.getMonth();
