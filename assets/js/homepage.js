@@ -11,6 +11,7 @@ var userInput = "";
 var userSearch = []; 
 var cityButtonEl = document.querySelector("#saved-cities")
 
+
 // method for appending table and row for saved cities 
 function citySearch() {
     var savedCities = $("#saved-cities");
@@ -27,7 +28,8 @@ $("#saved-cities").on("click", ".btn-info", function(event) {
   event.preventDefault();
   var userInput = ($(this).text());
   console.log(this)
-  weatherFiveDay(userInput);
+  var clickedUserInput = userInput.textContent;
+  weatherFiveDay(clickedUserInput);
 }); 
 
 
@@ -87,6 +89,7 @@ $(document).ready(function () {
       var currentWind = $(".current-wind");
       var currentFeelsLike = $(".current-feels_like"); 
       var currentSunrise= $(".current-sunrise"); 
+      var currentUV = $(".current-UV");
       var fav = response.weather[0].icon;
       var iconURL = "http://openweathermap.org/img/wn/" + fav + ".png";
       userInput.text(response.name + " " + currentDay);
@@ -95,6 +98,7 @@ $(document).ready(function () {
       currentWind.text("Wind Speed: " + response.wind.speed + " MPH");
       currentFeelsLike.text("Feels Like: " + response.main.feels_like);
       currentSunrise.text("Sunrise: " + response.sys.sunrise);
+      currentUV.text("UV Index: " + response.value);
       var cityIcon = $("<img>");
       cityIcon.attr("src", iconURL);
       userInput.append(cityIcon);
