@@ -28,8 +28,8 @@ $("#saved-cities").on("click", ".btn-info", function(event) {
   event.preventDefault();
   var userInput = ($(this).text());
   console.log(this)
-  var clickedUserInput = userInput.textContent;
-  weatherFiveDay(clickedUserInput);
+   var clickedUserInput = userInput.textContent
+   weatherFiveDay(clickedUserInput);
 }); 
 
 
@@ -89,6 +89,8 @@ $(document).ready(function () {
       var currentWind = $(".current-wind");
       var currentFeelsLike = $(".current-feels_like"); 
       var currentSunrise= $(".current-sunrise"); 
+      var Lat = response.coord.lat;
+      var Long = response.coord.lon;
       var currentUV = $(".current-UV");
       var fav = response.weather[0].icon;
       var iconURL = "http://openweathermap.org/img/wn/" + fav + ".png";
@@ -102,6 +104,15 @@ $(document).ready(function () {
       var cityIcon = $("<img>");
       cityIcon.attr("src", iconURL);
       userInput.append(cityIcon);
+
+      var queryURL = "http://api.openweathermap.org/data/2.5/uvi?lat=" + Lat + "&lon=" +  Long +  "&appid=4fbc24f7853d01d79e793285ce2fa9a4";
+      $.ajax({
+        url: queryURL,
+        type: "get", queryURL
+      }).then(function (response) {
+        currentUV.text("UV : " + response.value);
+      });
+     
      });
 
     // 5day Api 
@@ -112,8 +123,10 @@ $(document).ready(function () {
       url: queryURL,
       type: "get", queryURL
     }).then(function (response) {
+      var weatherHeader = $("#weatherHeader");
       for (i = 0; i < 5; i++) {
         var cityWeather = $("#weatherDisplay");
+        weatherHeader =  $("<h2>");
         var h3Tag = $("<h3>");
         var pTag = $("<p>");
         var weatherIcon = $("<img>");
@@ -123,12 +136,10 @@ $(document).ready(function () {
         var dd = date.getDate();
         var mm = date.getMonth();
         var yyyy = date.getFullYear();
-        h3Tag
-          .addClass("col-2 img-thumbnail");
+        h3Tag.addClass("col-2 img-thumbnail");
         weatherIcon.attr("src", iconURL).addClass("weather-Icon");
         h3Tag.append(weatherIcon);
-        pTag
-          .text(
+        pTag.text(
             mm+'/'+dd+'/'+yyyy+"\n"+
             "Temp: " +
               response.list[i + 5].main.temp +
@@ -144,8 +155,10 @@ $(document).ready(function () {
 
       });
    }
+
   
 });
+
 
 //cityButtonEl.addEventListener("click", buttonClickHandler);
 
