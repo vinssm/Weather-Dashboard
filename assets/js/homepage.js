@@ -28,8 +28,10 @@ $("#saved-cities").on("click", ".btn-info", function(event) {
   event.preventDefault();
   var userInput = ($(this).text());
   console.log(this)
-   var clickedUserInput = userInput.textContent
-   weatherFiveDay(clickedUserInput);
+  userInput = searchInput.val();
+  var cityData = JSON.parse(localStorage.getItem("City"));
+  console.log(cityData)
+  
 }); 
 
 
