@@ -100,7 +100,8 @@ $(document).ready(function () {
       currentWind.text("Wind Speed: " + response.wind.speed + " MPH");
       currentFeelsLike.text("Feels Like: " + response.main.feels_like);
       currentSunrise.text("Sunrise: " + response.sys.sunrise);
-      currentUV.text("UV Index: " + response.value);
+      console.log(currentUV);
+      currentUV.text("UV : " + response.value);
       var cityIcon = $("<img>");
       cityIcon.attr("src", iconURL);
       userInput.append(cityIcon);
@@ -110,6 +111,7 @@ $(document).ready(function () {
         url: queryURL,
         type: "get", queryURL
       }).then(function (response) {
+        console.log(response);
         currentUV.text("UV : " + response.value);
       });
      
