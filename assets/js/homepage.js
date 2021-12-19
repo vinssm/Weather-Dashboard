@@ -105,7 +105,7 @@ $(document).ready(function () {
       cityIcon.attr("src", iconURL);
       userInput.append(cityIcon);
 
-      var queryURL = "http://api.openweathermap.org/data/2.5/uvi?lat=" + Lat + "&lon=" +  Long +  "&appid=4fbc24f7853d01d79e793285ce2fa9a4";
+      var queryURL = "http://api.openweathermap.org/data/2.5/uvi?lat="+Lat +"&lon=" +Long +"&appid=4fbc24f7853d01d79e793285ce2fa9a4";
       $.ajax({
         url: queryURL,
         type: "get", queryURL
@@ -116,7 +116,7 @@ $(document).ready(function () {
      });
 
     // 5day Api 
-    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q="+userInput+"&units=imperial&appid=0d2df46fe7ac45114da1797fcf89227a";
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q="+userInput+"&units=imperial&appid=ee619dd6f31cb271236b76c90cd7d6b4";
 
     // ajax calling
     $.ajax({
