@@ -92,6 +92,7 @@ $(document).ready(function () {
       var Lat = response.coord.lat;
       var Long = response.coord.lon;
       var currentUV = $(".current-UV");
+      var currentUVLon = $(".current-UVLong");
       var fav = response.weather[0].icon;
       var iconURL = "https://openweathermap.org/img/wn/" + fav + ".png";
       userInput.text(response.name + " " + currentDay);
@@ -100,8 +101,8 @@ $(document).ready(function () {
       currentWind.text("Wind Speed: " + response.wind.speed + " MPH");
       currentFeelsLike.text("Feels Like: " + response.main.feels_like);
       currentSunrise.text("Sunrise: " + response.sys.sunrise);
-      console.log(currentUV);
-      currentUV.text("UV : " + response.value);
+      //console.log(currentUV);
+      //currentUV.text("UV : " + response.value);
       var cityIcon = $("<img>");
       cityIcon.attr("src", iconURL);
       userInput.append(cityIcon);
@@ -112,7 +113,8 @@ $(document).ready(function () {
         type: "get", queryURL
       }).then(function (response) {
         console.log(response);
-        currentUV.text("UV : " + response.value);
+        currentUV.text("UV Lat: " + response.lat);
+        currentUVLon.text("UV Long: " + response.lon);
       });
      
      });
