@@ -93,7 +93,7 @@ $(document).ready(function () {
       var Long = response.coord.lon;
       var currentUV = $(".current-UV");
       var fav = response.weather[0].icon;
-      var iconURL = "http://openweathermap.org/img/wn/" + fav + ".png";
+      var iconURL = "https://openweathermap.org/img/wn/" + fav + ".png";
       userInput.text(response.name + " " + currentDay);
       currentTemp.text("Temperature: " + response.main.temp + "º" + "C");
       currentHumidity.text("Humidity: " + response.main.humidity + "%");
@@ -131,7 +131,7 @@ $(document).ready(function () {
         var pTag = $("<p>");
         var weatherIcon = $("<img>");
         var fav = response.list[i * 8 + 5].weather[0].icon;
-        var iconURL = "http://openweathermap.org/img/wn/" + fav + ".png";
+        var iconURL = "https://openweathermap.org/img/wn/" + fav + ".png";
         var date = new Date(response.list[i].dt_txt);
         var dd = date.getDate();
         var mm = date.getMonth();
