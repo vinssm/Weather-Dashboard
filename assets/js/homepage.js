@@ -23,18 +23,6 @@ function citySearch() {
 }
 
 
-// to display the saved cities
-$("#saved-cities").on("click", ".btn-info", function(event) {
-  event.preventDefault();
-  var userInput = ($(this).text());
-  console.log(this)
-  userInput = searchInput.val();
-  var cityData = JSON.parse(localStorage.getItem("City"));
-  console.log(cityData)
-  
-}); 
-
-
 // Method for City Data
 function citiesData() {
   var cityData = JSON.parse(localStorage.getItem("City"));
@@ -162,7 +150,17 @@ $(document).ready(function () {
       });
    }
 
-  
+      // to display the saved cities
+    $("#saved-cities").on("click", ".btn-info", function(event) {
+      event.preventDefault();
+      var userInput = ($(this).text());
+      console.log(this)
+      userInput = searchInput.val();
+      var cityData = JSON.parse(localStorage.getItem("City"));
+      console.log(cityData);
+      weatherFiveDay(cityData);
+    }); 
+
 });
 
 
