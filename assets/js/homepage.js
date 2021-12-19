@@ -75,8 +75,8 @@ $(document).ready(function () {
     var toRemove = $("#weatherDisplay");
     toRemove.empty();
 
-    // 5day Api 
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+userInput+"&appid=4fbc24f7853d01d79e793285ce2fa9a4";
+    // day Api 
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+userInput+"&appid=6a19be96eeb70a35bda9aeee8aa64618";
 
     // calling  current weather for City, Temparature, Humidity
     $.ajax({
@@ -105,7 +105,7 @@ $(document).ready(function () {
       cityIcon.attr("src", iconURL);
       userInput.append(cityIcon);
 
-      var queryURL = "http://api.openweathermap.org/data/2.5/uvi?lat=" + Lat + "&lon=" +  Long +  "&appid=4fbc24f7853d01d79e793285ce2fa9a4";
+      var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat="+Lat+"&lon="+Long+"&exclude=minutely,hourly,alerts&appid=4fbc24f7853d01d79e793285ce2fa9a4";
       $.ajax({
         url: queryURL,
         type: "get", queryURL
